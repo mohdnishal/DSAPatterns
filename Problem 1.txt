@@ -1,0 +1,139 @@
+// Problem 1:
+// Check if an array contains duplicate elements.
+// Input: [1,2,3,4,1]           Output:true
+
+function duplicate()
+{
+    let input=[1,2,3,4,1]
+    let hashSet=new Set()
+    for(let num of input)
+    {
+        if(hashSet.has(num))
+        {
+            return true
+        }
+        else{
+            hashSet.add(num)
+        }
+    }
+    return false
+}
+console.log(duplicate());
+
+
+// Problem 2:
+// Check if two strings are anagrams.
+
+// Input: s = "listen" t = "silent" Output: true
+function anagrams()
+{
+   let s = "listen"
+   let t = "silent"
+   let hashMap=new Map()
+   if(s.length!==t.length) return false
+   for (let char of s)
+   {
+       hashMap.set(char,(hashMap.get(char)||0)+1);
+   }
+   for(let char of t)
+   {
+       if(!hashMap.get(char)) return false
+       hashMap.set(char,hashMap.get(char)-1)
+   }
+ return true   
+}
+console.log(anagrams())
+
+// Problem 3:
+// Find the first non-repeating character in a string.
+
+// Input:
+
+// "leetcode"
+
+// Output:
+
+// "l"
+
+function nonRepeating()
+{
+    let input="lleettccoodde"
+    let hashMap=new Map()
+    for(let num of input)
+    {
+        hashMap.set(num,(hashMap.get(num)||0)+1)
+    }
+    console.log(hashMap)
+   for(let num of input)
+   {
+       if(hashMap.get(num)==1)
+       return num
+   }
+   return null
+}
+console.log(nonRepeating())
+
+
+// Problem 4:
+// Return the index of two numbers such that they add up to target.
+
+// Input: nums = [2,7,11,15], target = 9
+
+// Output: [0,1]
+function twoSum()
+{
+    let nums = [2,7,11,15]
+    let target = 9
+    let hashMap=new Map()
+    for(let i=0;i<=nums.length;i++)
+    {
+        let complemet=target-nums[i]
+        if(hashMap.has(complemet))
+        {
+            return [hashMap.get(complemet),i]
+        }
+        hashMap.set(nums[i],i)
+    }
+    
+}
+console.log(twoSum())
+
+// Problem 5:
+// Check if a string has all unique characters.
+// Input:"abcdefa"
+// Output:false
+
+function unique()
+{
+    let input="abcdefa"
+    let hashSet=new Set()
+    for(let char of input)
+    {
+        if(hashSet.has(char)) return false
+        hashSet.add(char)
+    }
+    return true
+}
+console.log(unique())
+
+// Problem 6:
+// Find the intersection of two arrays (unique elements).
+// Input:nums1 = [1,2,2,1] nums2 = [2,2]
+// Output:[2]
+function interSection()
+{
+    let nums1 = [1,2,2,1] 
+    let nums2 = [1,2,2]
+    let hashSet1=new Set(nums1)
+    let hashSet2=new Set()
+    for (let i of nums2)
+    {
+       if(hashSet1.has(i))
+       {
+           hashSet2.add(i)
+       }
+    }
+    return [...hashSet2]
+
+}
+console.log(interSection())
