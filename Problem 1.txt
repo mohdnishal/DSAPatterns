@@ -137,3 +137,26 @@ function interSection()
 
 }
 console.log(interSection())
+
+
+// Problem 7:
+// Group words that are anagrams.
+// Input: ["eat","tea","tan","ate","nat","bat"]
+// Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
+
+function anagram()
+{
+    let input=["eat","tea","tan","ate","nat","bat"]
+    let hashMap=new Map()
+    for (let words of input)
+    {
+        let key=words.split('').sort().join('')
+        if(!hashMap.has(key))
+        {
+            hashMap.set(key,[])
+        }
+        hashMap.get(key).push(words)
+    }
+    return Array.from(hashMap.values())
+}
+console.log(anagram())
