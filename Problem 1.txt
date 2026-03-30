@@ -549,3 +549,20 @@ function commonElements()
     
 }
 console.log(commonElements())
+// Problem 13:
+// Check if two arrays have any common element.
+// Input:[1,2,3] and [4,5,6]
+// Output:false
+function commonElements()
+{
+    let input1=[1,2,3]
+    let input2=[4,5,6]
+    let hashSet=new Set(input1)
+    for(let num of input2)
+    {
+        if(hashSet.has(num)) return true
+    }
+    return false
+    
+}
+console.log(commonElements())
