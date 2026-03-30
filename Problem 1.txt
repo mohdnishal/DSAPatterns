@@ -598,7 +598,33 @@ console.log(moreThan())
         if (set.has(num)) return true
         set.add(num)
     }
+// Problem 15:
+// Find missing number from 0 to n.
+// Input:[3,0,1]
+// Output:2
 
+1)function missingNumber()
+{
+    let input=[3,0,1]
+    let hashSet=new Set(input)
+    for(let i=0;i<input.length;i++)
+    {
+        if(!hashSet.has(i)) return i
+    }
+}
+console.log(missingNumber())
+2)function missingNumber(){
+    let input=[3,0,1]
+    let n=input.length
+    let expected=n*(n+1)/2
+    let actual=0
+    for(let num of input)
+    {
+     actual+=num
+    }
+    return expected-actual
+}
+console.log(missingNumber())
     return false
 }
 
