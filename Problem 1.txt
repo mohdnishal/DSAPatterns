@@ -180,3 +180,27 @@ function unique()
     }
 }
 console.log(unique())
+
+
+// Problem 10:
+// Check if ransomNote can be constructed from magazine.
+// Input: ransomNote = "aa" magazine = "aab"
+// Output:true
+
+function ransomNote()
+{
+    let ransomNote = "aa"
+    let magazine = "aab"
+    let map=new Map()
+    for(let char of magazine)
+    {
+        map.set(char,(map.get(char)||0)+1)
+    }
+    for(let char of ransomNote)
+    {
+        if(!map.get(char)) return false
+        map.set(char,map.get(char)-1)
+    }
+    return true
+}
+console.log(ransomNote())
