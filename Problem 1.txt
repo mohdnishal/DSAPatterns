@@ -629,3 +629,15 @@ console.log(missingNumber())
 }
 
 console.log(moreThan())
+
+//problem 16
+// Find the number of distinct elements.
+// Input:[1,2,2,3,3,3]
+// Output:3
+function distinctElements()
+{
+    let input=[1,2,2,3,3,3]
+    let hashSet=new Set(input)
+    return hashSet.size
+}
+console.log(distinctElements())
