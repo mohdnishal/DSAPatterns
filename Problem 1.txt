@@ -667,3 +667,29 @@ function difference()
     return [arr1,arr2]
 }
 console.log(difference())
+
+
+// Problem 18:
+// Check if two strings follow the same pattern.
+// Input:pattern = "abba" s = "dog cat cat dog"
+// Output:true
+function pattern()
+{
+    let pattern="abba"
+    let s= "dog cat cat dog"
+    let map1=new Map()
+    let map2=new Map()
+    let word=s.split(' ')
+    if(pattern.length!==word.length) return false
+    for(let i=0;i<pattern.length;i++)
+    {
+        let char=pattern[i]
+        let w=word[i]
+        if(map1.has(char)&&map1.get(char)!==w) return false
+        if(map2.has(w)&&map2.get(w)!==char) return false
+        map1.set(char,w)
+        map2.set(w,char)
+    }
+    return true
+}
+console.log(pattern())
