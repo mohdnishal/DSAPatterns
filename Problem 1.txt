@@ -693,3 +693,32 @@ function pattern()
     return true
 }
 console.log(pattern())
+//problem 19:
+// Find all pairs with equal sum.
+// Input:[1,2,3,4]
+// Output:[[1,4],[2,3]]
+function equalSumPairs(){
+    let input=[1,2,3,4]
+    let map=new Map()
+    let res=[]
+    for(let i=0;i<input.length;i++)
+    {
+        for(j=i+1;j<input.length;j++)
+        {
+            let sum=input[i]+input[j]
+            if(!map.has(sum))
+            {
+                map.set(sum,[[input[i],input[j]]])
+            }
+            else{
+                map.get(sum).push([input[i],input[j]])
+            }
+        }
+    }
+    for(let [key,value] of map)
+    {
+        if(value.length>1) res.push(...value)
+    }
+    return res
+}
+console.log(equalSumPairs())
