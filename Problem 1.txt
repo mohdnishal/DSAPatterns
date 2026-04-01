@@ -722,3 +722,24 @@ function equalSumPairs(){
     return res
 }
 console.log(equalSumPairs())
+
+// Problem 20:
+// Find if array contains any duplicates within k distance.
+// Input:nums = [1,2,3,1], k = 3
+// Output:true
+function nearDuplicates()
+{
+    let nums=[1,2,3,4,1]
+    let k=3
+    let map=new Map()
+    for(let i=0;i<nums.length;i++)
+    {
+        if(map.has(nums[i]))
+        {
+            if(i-map.get(nums[i])<=k) return true
+        }
+        map.set(nums[i],i)
+    }
+    return false
+}
+console.log(nearDuplicates())
